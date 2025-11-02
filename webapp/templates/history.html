@@ -11,10 +11,6 @@
     ol { padding-left: 1.25rem; }
     li { margin: 0.25rem 0; }
     .actions { margin: 1rem 0; }
-    .link-btn {
-      display: inline-block; padding: 0.6rem 1rem; border-radius: 8px; border: 1px solid #8885;
-      background: #2d6cdf; color: white; text-decoration: none; cursor: pointer; font-weight: 600;
-    }
     .empty { color: #777; }
   </style>
 </head>
@@ -28,11 +24,14 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p class="empty">No jokes yet. Head back and generate your first one.</p>
+    <p class="empty">No jokes yet.</p>
   {% endif %}
 
   <div class="actions">
-    <a class="link-btn" href="{{ url_for('joke') }}">Back Home</a>
+    <a class="link-btn" href="{{ url_for('joke') }}"
+      style="display:inline-block; padding:0.6rem 1rem; border-radius:8px; border:1px solid rgba(146, 123, 123, 0.568); background:#2d6cdf; color:white; text-decoration:none; cursor:pointer; font-weight:600;">
+      Back Home
+    </a>
   </div>
 </body>
 </html>
