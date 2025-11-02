@@ -12,13 +12,26 @@
     li { margin: 0.25rem 0; }
     .actions { margin: 1rem 0; }
     .empty { color: #777; }
-    .btn { display:inline-block; padding:0.6rem 1rem; border-radius:8px; border:1px solid rgba(146, 123, 123, 0.568); background:#2d6cdf; color:white; text-decoration:none; cursor:pointer; font-weight:600; }
   </style>
 </head>
 <body>
-  <div id="root"></div>
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="/static/app.js"></script>
+  <h1>Joke History</h1>
+
+  {% if history and history|length > 0 %}
+    <ol>
+      {% for j in history %}
+        <li>{{ j }}</li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="empty">No jokes yet.</p>
+  {% endif %}
+
+  <div class="actions">
+    <a class="link-btn" href="{{ url_for('joke') }}"
+      style="display:inline-block; padding:0.6rem 1rem; border-radius:8px; border:1px solid rgba(146, 123, 123, 0.568); background:#2d6cdf; color:white; text-decoration:none; cursor:pointer; font-weight:600;">
+      Back Home
+    </a>
+  </div>
 </body>
 </html>

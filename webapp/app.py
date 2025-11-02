@@ -10,14 +10,14 @@ def joke():
     if request.method == "POST":
         joke_text = pyjokes.get_joke()
         history.append(joke_text)
-        return render_template('Index.html', joke=joke_text)
-    return render_template('Index.html', joke=None)
+        return render_template('oldIndex.html', joke=joke_text)
+    return render_template('oldIndex.html', joke=None)
 
 
 
 @app.route('/History', methods=["GET"])
 def history_view():
-    return render_template('history.html', history=history)
+    return render_template('oldhistory.html', history=history)
 
 
 

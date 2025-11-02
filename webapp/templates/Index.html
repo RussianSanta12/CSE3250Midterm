@@ -11,27 +11,13 @@
         .actions { display: flex; gap: 0.75rem; margin: 1rem 0; }
         .joke { margin-top: 1rem; padding: 1rem; border: 1px solid rgba(136,136,136,0.33); border-radius: 8px; background: #0000000d; }
         footer { margin-top: 2rem; font-size: 0.9rem; color: #777; }
+        .btn { display:inline-block; padding:0.6rem 1rem; border-radius:8px; border:1px solid rgba(146, 123, 123, 0.568); background:#2d6cdf; color:white; text-decoration:none; cursor:pointer; font-weight:600; }
     </style>
-    </head>
+</head>
 <body>
-    <h1>Random Joke</h1>
-    <p>Press the button to get a new joke.</p>
-
-    <div class="actions">
-        <form method="post" action="{{ url_for('joke') }}">
-            <button type="submit"
-                style="display:inline-block; padding:0.6rem 1rem; border-radius:8px; border:1px solid rgba(146, 123, 123, 0.568); background:#2d6cdf; color:white; text-decoration:none; cursor:pointer; font-weight:600;">
-                Tell me a joke
-            </button>
-        </form>
-        <a class="link-btn" href="{{ url_for('history_view') }}"
-            style="display:inline-block; padding:0.6rem 1rem; border-radius:8px; border:1px solid rgba(146, 123, 123, 0.568); background:#2d6cdf; color:white; text-decoration:none; cursor:pointer; font-weight:600;">
-            View History
-        </a>
-    </div>
-
-    {% if joke %}
-    <div class="joke" aria-live="polite">{{ joke }}</div>
-    {% endif %}
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="/static/app.js"></script>
 </body>
 </html>
